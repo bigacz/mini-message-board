@@ -8,9 +8,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.6.0",
+    "globals": "^17.7.0",
+    "prettier": "3.9.4"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch app.js"
   },
   "repository": {
     "type": "git",
@@ -22,5 +28,6 @@
   "bugs": {
     "url": "https://github.com/bigacz/mini-message-board/issues"
   },
-  "homepage": "https://github.com/bigacz/mini-message-board#readme"
+  "homepage": "https://github.com/bigacz/mini-message-board#readme",
+  "prettier": {}
 }
