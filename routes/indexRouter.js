@@ -8,6 +8,10 @@ indexRouter.get("/message/:messageid", (req, res) => {
 
   const message = db.getMessage(requestId);
 
+  if (message == null) {
+    res.render("messageNotFound");
+  }
+
   res.render("message", { message: message });
 });
 
@@ -25,6 +29,10 @@ indexRouter.post("/new", (req, res) => {
 indexRouter.use("/", (req, res) => {
   const messages = db.getAllMessages();
   res.render("index", { title: "Mini Messageboard", messages });
+});
+
+indexRouter.use("/", (err, req, res, next) => {
+  res.send("Unexpected error occured!");
 });
 
 export default indexRouter;
