@@ -1,28 +1,15 @@
-import express from 'express';
-import process from 'node:process';
-import { text } from 'node:stream/consumers';
+import express from "express";
+import process from "node:process";
+import indexRouter from "./routes/indexRouter.js";
 
 const app = express();
 
-app.set('view engine', 'ejs');
-app.set('views', process.cwd() + '/views/');
+app.use(express.urlencoded({ extended: true }));
 
-const messages = [
-  {
-    text: 'Hi there!',
-    user: 'Amando',
-    added: new Date(),
-  },
-  {
-    text: 'Hello World!',
-    user: 'Charles',
-    added: new Date(),
-  },
-];
+app.set("view engine", "ejs");
+app.set("views", process.cwd() + "/views/");
 
-app.use('/', (req, res) => {
-  res.render('index', { messages });
-});
+app.use("/", indexRouter);
 
 const PORT = 8080;
 app.listen(PORT, (error) => {
