@@ -11,7 +11,7 @@
       <div>
         <h2><%= message.user %></h2>
         <p><%= message.text %></p>
-        <p><%= message.added %></p>
+        <p><%= message.getTimeAgo() %></p>
         <a href="/message/<%=message.id%>">Open</a>
       </div>
       <%}) %>
