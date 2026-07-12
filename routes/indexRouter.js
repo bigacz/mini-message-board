@@ -32,6 +32,7 @@ indexRouter.use("/", (req, res) => {
 });
 
 indexRouter.use("/", (err, req, res, next) => {
+  console.log(err);
   res.send("Unexpected error occured!");
 });
 
