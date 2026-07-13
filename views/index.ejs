@@ -4,18 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Messages</title>
+    <link rel="stylesheet" href="./index.css">
   </head>
   <body>
-    <div>
+      <%- include('./header.ejs') %>
+
+    <div class="messages_wrapper">
       <% messages.forEach((message) => { %>
-      <div>
-        <h2><%= message.user %></h2>
-        <p><%= message.text %></p>
-        <p><%= message.getTimeAgo() %></p>
-        <a href="/message/<%=message.id%>">Open</a>
+      <div >
+        <h2 class="message__text"><%= message.text %></h2>
+        <p class="message__user"><%= message.user %></p>
+        <p class="message__time"><%= message.getTimeAgo() %></p>
+        <a class="message__open" href="/message/<%=message.id%>">Open</a>
       </div>
       <%}) %>
     </div>
-    <a href="/new">New message</a>
+    <a class="add" href="/new">New message</a>
   </body>
 </html>

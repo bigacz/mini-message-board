@@ -9,6 +9,8 @@ app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.set("views", process.cwd() + "/views/");
 
+app.use(express.static("public"));
+
 app.use("/", indexRouter);
 
 const PORT = 8080;
